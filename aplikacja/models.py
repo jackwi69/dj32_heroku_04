@@ -1,8 +1,6 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.conf import settings
 
-class User(AbstractUser):
-    rating = models.PositiveIntegerField(default=settings.DEFAULT_USER_RATING)
 
 class Publication(models.Model):
     title = models.CharField(max_length=30)
@@ -13,7 +11,9 @@ class Publication(models.Model):
     def __str__(self):
         return self.title
 
+
 class Article(models.Model):
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     headline = models.CharField(max_length=100)
     publications = models.ManyToManyField(Publication)
 

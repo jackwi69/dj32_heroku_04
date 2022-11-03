@@ -101,6 +101,9 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+# AUTH_USER_MODEL = 'account.User'
+# swappable = 'AUTH_USER_MODEL'
+
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
